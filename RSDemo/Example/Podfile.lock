@@ -1,0 +1,19 @@
+PODS:
+  - Masonry (1.0.2)
+  - RSDemo (0.1.0)
+
+DEPENDENCIES:
+  - Masonry
+  - RSDemo (from `../`)
+
+EXTERNAL SOURCES:
+  RSDemo:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  RSDemo: 8e1764f88c378d1ea1bfcb9126762501083c9e04
+
+PODFILE CHECKSUM: d2ac47a57d05f6474b7d29ec0264f2a54377ebee
+
+COCOAPODS: 1.2.0

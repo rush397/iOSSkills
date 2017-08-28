@@ -1,0 +1,18 @@
+platform :ios, '7.0'
+
+plugin 'cocoapods-repo-svn', :sources => [
+'~/.cocoapods/dtspecs'
+]
+
+install! 'cocoapods', :deterministic_uuids => false
+
+target 'RSDemo_Example' do
+  pod 'RSDemo', :path => '../'
+  pod 'Masonry'
+
+  target 'RSDemo_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

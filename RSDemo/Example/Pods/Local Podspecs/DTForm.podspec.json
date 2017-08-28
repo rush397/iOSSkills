@@ -1,0 +1,32 @@
+{
+  "name": "DTForm",
+  "version": "0.1.5",
+  "summary": "A short description of DTForm.",
+  "homepage": "http://www.ddtkj.com",
+  "license": {
+    "type": "Copyright",
+    "text": "        山西大德通科技有限公司版权所有.\n"
+  },
+  "authors": {
+    "yaoqi": "yaoqi@ddtkj.com"
+  },
+  "source": {
+    "svn": "https://192.168.251.64:8443/svn/DDTKJ-SRC-APP/ios/components/basic/DTForm"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "DTForm/**/*",
+  "dependencies": {
+    "DTUtils": [
+
+    ],
+    "IQKeyboard": [
+
+    ],
+    "DTLibs/SDWebImage": [
+
+    ]
+  },
+  "prefix_header_contents": "#import \"DTUtils.h\""
+}
