@@ -53,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		048EF9EE1F4FF550005DB848 /* RSGCDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGCDTest.m; sourceTree = "<group>"; };
+		0491CF501F54FCD400CE47B6 /* RSObjCSyntaxTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RSObjCSyntaxTest.cpp; sourceTree = "<group>"; };
+		0491CF511F550E0B00CE47B6 /* RSObjcSyntaxViewControllerXXX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RSObjcSyntaxViewControllerXXX.cpp; sourceTree = "<group>"; };
 		04BE92C31F4EBDC30099AAD4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		04C60A6790D92EE557D787CB /* Pods-RSDemo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSDemo_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSDemo_Tests/Pods-RSDemo_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		159AE6EE68E2F8A5CFD8C7AC /* libPods-RSDemo_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RSDemo_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +228,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0491CF501F54FCD400CE47B6 /* RSObjCSyntaxTest.cpp */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				048EF9EE1F4FF550005DB848 /* RSGCDTest.m */,
 				A88D10F21F52B2CB003AD4C4 /* RSObjCSyntaxTest.m */,
@@ -254,6 +257,7 @@
 		A88D10C81F5270DA003AD4C4 /* objc */ = {
 			isa = PBXGroup;
 			children = (
+				0491CF511F550E0B00CE47B6 /* RSObjcSyntaxViewControllerXXX.cpp */,
 				A88D10C91F5270DA003AD4C4 /* RSThreadSafeDictionary.h */,
 				A88D10CA1F5270DA003AD4C4 /* RSThreadSafeDictionary.m */,
 				A88D10EF1F52723E003AD4C4 /* RSObjcSyntaxViewController.h */,

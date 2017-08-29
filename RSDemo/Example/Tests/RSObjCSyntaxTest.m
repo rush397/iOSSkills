@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "RSObjcSyntaxViewController.h"
+#import <objc/runtime.h>
 
 @interface RSObjCSyntaxTest : XCTestCase
 
@@ -23,6 +24,8 @@
  https://onevcat.com/2011/11/objc-block/
  
  http://www.imlifengfeng.com/blog/?p=147
+ 
+ clang -rewrite-objc -fobjc-arc -fobjc-runtime=macosx-10.11 RSObjCSyntaxTest.m
  */
 @implementation RSObjCSyntaxTest
 
@@ -35,6 +38,8 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
+
+#pragma mark - block
 
 - (void)testBlock {
     self.blockSyntaxObject = [[RSBlockSyntaxObject alloc] init];
@@ -123,6 +128,74 @@
     block2();
     // 160
     NSLog(@"%@", @(block2()));
+}
+
+#pragma mark - property
+
+- (void)testPropertyAttributes {
+    NSMutableString *text = [NSMutableString stringWithString:@"This is a mutable text"];
+    NSMutableArray *array = [@[@"a1", @"a2", @"a3"] mutableCopy];
+    NSString *immutableText = @"This is a immutable text";
+    NSLog(@"immutable text init %@ : %@", [immutableText class], immutableText);
+    NSLog(@"mutable text init %@ : %@", [text class], text);
+    NSLog(@"mutable array init %@ : %@", [array class], array);
+    NSMutableArray *immutableArray = [array copy];
+    NSLog(@"immutable array init %@ : %@", [immutableArray class], immutableArray);
+    
+    RSPropertySyntaxObject *obj = [[RSPropertySyntaxObject alloc] init];
+    obj.strongText = text;
+    obj.copyedText = text;
+    obj.copyedMutableText = text;
+    obj.strongArray = array;
+    obj.copyedArray = array;
+    obj.copyedMutableArray = array;
+    
+    [obj print];
+    
+    NSLog(@"will change text and array......");
+    
+    text.string = @"This is a new text";
+    [array insertObject:@"insert object" atIndex:0];
+    
+    [obj print];
+}
+
+- (void)testCrashWithSomeAttributes {
+    RSPropertySyntaxObject *obj = [[RSPropertySyntaxObject alloc] init];
+    NSMutableArray *array = [@[@"a1", @"a2", @"a3"] mutableCopy];
+    obj.copyedMutableArray = array;
+    [obj testArrayCrash];
+}
+
+#pragma mark - rumtime
+
+/*
+ iOS 底层解析weak的实现原理 - http://www.cocoachina.com/ios/20170328/18962.html
+ */
+
+- (void)testPropertyRuntime {
+    unsigned int count;
+    objc_property_t *properties = class_copyPropertyList([RSPropertySyntaxObject class], &count);
+    
+    for (int i = 0; i < count; i++) {
+        objc_property_t property = properties[i];
+//        objc_property_t property = class_getProperty([RSPropertySyntaxObject class], "strongText");
+        const char *name = property_getName(property);
+        const char *attributes = property_getAttributes(property);
+        NSLog(@"name : %@", [NSString stringWithUTF8String:name]);
+        NSLog(@"attributes : %@", [NSString stringWithUTF8String:attributes]);
+    }
+    
+    Method *methodes = class_copyMethodList([RSPropertySyntaxObject class], &count);
+    for (int i = 0; i < count; i++) {
+        Method method = methodes[i];
+        SEL methodName = method_getName(method);
+        char returnType;
+        method_getReturnType(method, &returnType, sizeof(char));
+        
+        NSLog(@"methodName : %@", NSStringFromSelector(methodName));
+        NSLog(@"returnType : %c", returnType);
+    }
 }
 
 - (void)testPerformanceExample {
