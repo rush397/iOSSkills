@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		048EF9EF1F4FF550005DB848 /* RSGCDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 048EF9EE1F4FF550005DB848 /* RSGCDTest.m */; };
+		049C7CAE1F56599C008DA1BE /* RSBlockExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C7CAD1F56599C008DA1BE /* RSBlockExecutor.m */; };
 		04BE92C41F4EBDC30099AAD4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE92C31F4EBDC30099AAD4 /* Launch Screen.storyboard */; };
 		3B1EE5D28338358D95732A98 /* libPods-RSDemo_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 159AE6EE68E2F8A5CFD8C7AC /* libPods-RSDemo_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -55,6 +56,8 @@
 		048EF9EE1F4FF550005DB848 /* RSGCDTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGCDTest.m; sourceTree = "<group>"; };
 		0491CF501F54FCD400CE47B6 /* RSObjCSyntaxTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RSObjCSyntaxTest.cpp; sourceTree = "<group>"; };
 		0491CF511F550E0B00CE47B6 /* RSObjcSyntaxViewControllerXXX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RSObjcSyntaxViewControllerXXX.cpp; sourceTree = "<group>"; };
+		049C7CAC1F56599C008DA1BE /* RSBlockExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSBlockExecutor.h; sourceTree = "<group>"; };
+		049C7CAD1F56599C008DA1BE /* RSBlockExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSBlockExecutor.m; sourceTree = "<group>"; };
 		04BE92C31F4EBDC30099AAD4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		04C60A6790D92EE557D787CB /* Pods-RSDemo_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSDemo_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSDemo_Tests/Pods-RSDemo_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		159AE6EE68E2F8A5CFD8C7AC /* libPods-RSDemo_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RSDemo_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +265,8 @@
 				A88D10CA1F5270DA003AD4C4 /* RSThreadSafeDictionary.m */,
 				A88D10EF1F52723E003AD4C4 /* RSObjcSyntaxViewController.h */,
 				A88D10F01F52723E003AD4C4 /* RSObjcSyntaxViewController.m */,
+				049C7CAC1F56599C008DA1BE /* RSBlockExecutor.h */,
+				049C7CAD1F56599C008DA1BE /* RSBlockExecutor.m */,
 			);
 			path = objc;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 				A88D10F11F52723E003AD4C4 /* RSObjcSyntaxViewController.m in Sources */,
 				A88D10ED1F5270DA003AD4C4 /* RSOnScreenViewCell.m in Sources */,
 				6003F5A7195388D20070C39A /* RSUIKitViewController.m in Sources */,
+				049C7CAE1F56599C008DA1BE /* RSBlockExecutor.m in Sources */,
 				A88D10E81F5270DA003AD4C4 /* RSIntrinsicView.m in Sources */,
 				A88D10EB1F5270DA003AD4C4 /* RSOffScreenViewCell.m in Sources */,
 				A88D10EE1F5270DA003AD4C4 /* RSOnScreenViewController.m in Sources */,

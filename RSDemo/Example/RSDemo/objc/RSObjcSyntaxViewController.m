@@ -24,9 +24,15 @@
     }
 }
 
+- (void)dealloc {
+    NSLog(@"%@ dealloc", [self class]);
+}
+
 @end
 
 @implementation RSPropertySyntaxObject
+
+@synthesize _obj1 = __obj1;
 
 - (instancetype)init
 {
@@ -36,6 +42,18 @@
         NSLog(@"[[RSPropertySyntaxObject alloc] init] - copyedMutableArray %@ : %@", [_copyedMutableArray class], _copyedMutableArray);
     }
     return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    RSPropertySyntaxObject *obj = [[[self class] allocWithZone:zone] init];
+    obj.intValue = self.intValue;
+    obj.strongText = self.strongText;
+    obj.copyedText = self.copyedText;
+    obj.copyedMutableText = self.copyedMutableText;
+    obj.strongArray = self.strongArray;
+    obj.copyedArray = self.copyedArray;
+    obj.copyedMutableArray = self.copyedMutableArray;
+    return obj;
 }
 
 - (void)print {
@@ -58,6 +76,8 @@
 
 @interface RSObjcSyntaxViewController ()
 
+@property (nonatomic, strong) RSBlockSyntaxObject *blockSyntaxObject;
+
 @end
 
 @implementation RSObjcSyntaxViewController
@@ -66,6 +86,21 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    self.blockSyntaxObject = [[RSBlockSyntaxObject alloc] init];
+    self.blockSyntaxObject.copyBlock = ^{
+        self.view.backgroundColor = [UIColor redColor];
+        // 循环引用测试，置为 nil 后 blockSyntaxObject 才会被释放
+        self.blockSyntaxObject = nil;
+    };
+    
+    UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    clearButton.backgroundColor = [UIColor lightGrayColor];
+    [clearButton setTitle:@"Clear" forState:UIControlStateNormal];
+    clearButton.frame = CGRectMake(0, 0, 100, 44);
+    clearButton.center = self.view.center;
+    [clearButton addTarget:self action:@selector(clickClearButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:clearButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,14 +108,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)clickClearButton:(id)sender {
+    [self.blockSyntaxObject excuteCopyBlock];
 }
-*/
+
+- (void)dealloc {
+    NSLog(@"%@ dealloc", [self class]);
+}
 
 @end

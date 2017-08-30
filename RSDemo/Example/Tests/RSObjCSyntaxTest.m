@@ -167,6 +167,28 @@
     [obj testArrayCrash];
 }
 
+#pragma mark - copy & mutableCopy
+
+- (void)testCopyAndMutableCopy {
+    NSArray *mItems = @[[[RSPropertySyntaxObject alloc] init], [[RSPropertySyntaxObject alloc] init], [[RSPropertySyntaxObject alloc] init]];
+//    NSMutableArray *mItems = [@[[[RSPropertySyntaxObject alloc] init], [[RSPropertySyntaxObject alloc] init], [[RSPropertySyntaxObject alloc] init]] mutableCopy];
+    NSLog(@"items %p, %p, %@ - %@", mItems, &mItems, [mItems class], mItems);
+    NSArray *copyedItems = [mItems copy];
+    NSLog(@"copyedItems %p, %p, %@ - %@", copyedItems, &copyedItems, [copyedItems class], copyedItems);
+    NSMutableArray *mutableCopyedItems = [mItems mutableCopy];
+    NSLog(@"mutableCopyedItems %p, %p, %@ - %@", mutableCopyedItems, &mutableCopyedItems, [mutableCopyedItems class], mutableCopyedItems);
+    
+//    [mItems insertObject:[[RSPropertySyntaxObject alloc] init] atIndex:0];
+    NSLog(@"mItem insert new object");
+    
+    NSLog(@"items %p, %@ - %@", mItems, [mItems class], mItems);
+    NSLog(@"copyedItems %p, %@ - %@", copyedItems, [copyedItems class], copyedItems);
+    NSLog(@"mutableCopyedItems %p, %@ - %@", mutableCopyedItems, [mutableCopyedItems class], mutableCopyedItems);
+    
+    NSArray *deepCopyedItems = [[NSArray alloc] initWithArray:mItems copyItems:YES];
+    NSLog(@"deepCopyedItems %p, %@ - %@", deepCopyedItems, [deepCopyedItems class], deepCopyedItems);
+}
+
 #pragma mark - rumtime
 
 /*

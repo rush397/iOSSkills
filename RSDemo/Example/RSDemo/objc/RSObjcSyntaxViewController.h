@@ -24,7 +24,14 @@
 
 @end
 
-@interface RSPropertySyntaxObject : NSObject
+@interface RSPropertySyntaxObject : NSObject<NSCopying>
+{
+    NSObject *_obj1;
+    NSObject *__obj1;
+}
+
+@property (nonatomic, strong) NSObject *obj1;
+@property (nonatomic, strong) NSObject *_obj1;
 
 @property (nonatomic, assign) NSInteger intValue;
 
