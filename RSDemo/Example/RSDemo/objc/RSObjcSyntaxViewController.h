@@ -32,6 +32,7 @@
 
 @property (nonatomic, strong) NSObject *obj1;
 @property (nonatomic, strong) NSObject *_obj1;
+@property (nonatomic, copy) NSString *title;
 
 @property (nonatomic, assign) NSInteger intValue;
 

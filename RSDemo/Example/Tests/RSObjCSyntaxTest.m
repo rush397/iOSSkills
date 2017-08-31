@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "RSObjcSyntaxViewController.h"
 #import <objc/runtime.h>
+#import "RSUnrecognizedSelectorObject.h"
 
 @interface RSObjCSyntaxTest : XCTestCase
 
@@ -218,6 +219,11 @@
         NSLog(@"methodName : %@", NSStringFromSelector(methodName));
         NSLog(@"returnType : %c", returnType);
     }
+}
+
+- (void)testUnrecognizedSelector {
+    RSUnrecognizedSelectorObject *object = [[RSUnrecognizedSelectorObject alloc] init];
+    NSLog(@"object: %@", object);
 }
 
 - (void)testPerformanceExample {

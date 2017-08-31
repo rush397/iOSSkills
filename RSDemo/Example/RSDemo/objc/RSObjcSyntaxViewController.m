@@ -33,6 +33,7 @@
 @implementation RSPropertySyntaxObject
 
 @synthesize _obj1 = __obj1;
+@synthesize title = _title;
 
 - (instancetype)init
 {
@@ -54,6 +55,14 @@
     obj.copyedArray = self.copyedArray;
     obj.copyedMutableArray = self.copyedMutableArray;
     return obj;
+}
+
+- (void)setTitle:(NSString *)title {
+    _title = [title copy];
+}
+
+- (NSString *)title {
+    return _title;
 }
 
 - (void)print {
